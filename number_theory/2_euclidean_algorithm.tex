@@ -1,0 +1,33 @@
+\section{Euclidean Algorithm}
+
+\begin{theorem}[Euclidean Algorithm]
+Let $r_{-1} = a$, $r_{0} = b$, $r_{i - 1} = q_{i + 1}r_{i} + r_{i + 1}$, $i = 0, 1,\dots$ until $r_{n + 1} - 0$. Then $r_{n} = gcd(a, b)$.
+\end{theorem}
+
+\begin{proof}
+We inspect the last iteration: $r_{n - 1} = q_{n + 1}r_{n} + 0$. \\
+We observe that $r_{n}\mid r_{n - 1}$. \\
+Now, inspect the penultimate iteration: $r_{n - 1} = q_{n}r_{n - 1} + r_{n}$. \\
+We observe that $r_{n}\mid r_{n - 2}$. \\
+Iterating through, we get $r_{n}\mid r_{0}$ and $r_{n}\mid r_{-1}$. \\
+Hence, $r_{n}$ is a common divisor of $a$ and $b$. \\
+To prove that $r_{n} = gcd(a, b)$, suppose that $gcd(a, b) = d$. \\
+By the definition of gcd, $d\mid a$ and $d\mid b$. \\
+We inspect the first iteration: $a = q_{1}b + r_{1}$. \\
+We observe that $d\mid r_{1}$
+Iterating through, we get $d\mid r_{n}$. Hence, we conclude that $d = r_{n}$.
+\end{proof}
+
+Euclidean Algorithm has some features:
+
+\begin{observation}
+Let $b = r_{0}, r_{1}, \dots$ be the successive remainders in Euclidean algorithm applied to $a$ and $b$. For every two steps, the remainder is reduced by at least one half: $r_{i + 2} < \dfrac{1}{2}r_{i}$, $i = 0, 1, \dots$.
+\end{observation}
+
+\begin{observation}
+The algorithm terminates in at most $2\log_{2}b$ steps. In particular, the number of steps is at most seven times the number of digits of $b$.
+\end{observation}
+
+\noindent
+I omit the proofs. \\
+Finally, it is worth noting that $gcd(a, b)\times lcm(a, b) = ab$.

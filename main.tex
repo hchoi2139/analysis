@@ -10,9 +10,27 @@
 
 %% Useful packages
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+% Define theorem-like environments
+\newtheorem{theorem}{Theorem}[section] % Theorems numbered within sections
+\newtheorem{corollary}[theorem]{Corollary} % Corollaries share numbering with theorems
+\newtheorem{lemma}[theorem]{Lemma} % Lemmas share numbering with theorems
+
+% Define definition-like environments
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] % Definitions numbered within sections
+
+% Define observation environment
+\newtheorem{observation}{Observation}[section] % Observations numbered within sections
+
+% Define remark-like environment
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section] % Remarks numbered within sections
 
 \title{Note}
 \author{John Smith}
@@ -26,6 +44,7 @@
 \listoftables
 
 \input{introduction/introduction.tex}
+\input{number_theory/number_theory.tex}
 \input{topology/topology.tex}
 
 \bibliographystyle{alpha}

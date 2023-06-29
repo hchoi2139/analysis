@@ -1,0 +1,44 @@
+\section{Fermat's Little Theorem}
+
+\begin{lemma}
+Let $a\not\equiv 0\; (\bmod{p})$. $\{a, 2a,\cdots (p - 1)a \; (\bmod{p})\} = \{1, 2,\cdots (p - 1) \; (\bmod{p})\}$
+\end{lemma}
+
+\begin{proof}
+  Note that for $1\geq k\geq p - 1$, $ka\not\equiv 0\; (\bmod{p})$. \\
+  Thus, it is sufficient to show that for $1\geq i < j\geq p - 1$, $ia\not\equiv ja\; (\bmod{p})$. \\ 
+  By the assumptions, $j - i\not\equiv 0\; (\bmod{p})$ and $a\not\equiv 0\; (\bmod{p})$, so $(j - i)a\not\equiv 0\; (\bmod{p})$. \\
+  Thus $i\neq j$ and $ia\not\equiv ja\; (\bmod{p})$ is a bijection.
+\end{proof}
+
+\begin{theorem}[Fermat's Little Theorem]
+  Let $p$ be a prime number and $a$ be any number with $a\not\equiv 0\; (\bmod{p})$. Then $a^{p - 1}\equiv 1\; (\bmod{p})$.
+\end{theorem}
+
+\begin{proof}
+  $a\times 2a\dots (p - 1)a = (p - 1)!a^{p - 1}$. \\
+  By Lemma, $(p - 1)!a^{p - 1}\equiv (p - 1)!\; (\bmod{p})$. \\
+  Hence, $a^{p - 1}\equiv 1\; (\bmod{p})$.
+\end{proof}
+
+Suppose that we want to calculate $11^{104}\; (\bmod{17})$. We know, by \textbf{Fermat's Last Theorem}, that $11^{16}\equiv 1\; (\bmod{17})$. Thus $11^{96}\equiv 1\; (\bmod{17})$ and $11^{104}\equiv 11^{8}\; (\bmod{17})$. We can then exploit the fact that $11^{8} = (11^{2})^{4}$. Since $11^{2}\equiv 2\; (\bmod{17})$, we know that $11^{8}\equiv 16\equiv -1\; (\bmod{17})$.
+
+\begin{theorem}[Wilson's Theorem]
+  For a prime number $p$, $(p - 1)!\equiv -1\; (\bmod{p})$.
+\end{theorem}
+
+\begin{proof}
+We first look for trivial cases: when $p = 2,3$. The theorem holds. \\
+For $p > 3$, it is sufficient to show that $2\times \dots (p - 2)\equiv 1\; (\bmod{p})$. \\
+To show, we look the features of $ax\equiv 1\; (\bmod{p})$. \\
+As $gcd(a, p) = 1$, there always exists a unique $x$; say this $a'$.
+If $a = a'$, then $a'\equiv 1\; (\bmod{p})$ or $a'\equiv -1\; (\bmod{p})$ as 
+\begin{align*}
+aa' &\equiv 1\; (\bmod{p}) \\
+a^{2} &\equiv 1\; (\bmod{p}) \\
+(a - 1)(a + 1) &\equiv 0\; (\bmod{p})
+\end{align*}
+If $a\neq a'$, then we can always find a pair $(a, a')$ that satisfies $aa'\equiv 1\; (\bmod{p})$ by the guaranteed existence and uniqueness of $a'$. \\
+\\
+By the case of $a\neq a'$ above, we notice $(p - 2)!\equiv 1\; (\bmod{p})$.
+\end{proof}

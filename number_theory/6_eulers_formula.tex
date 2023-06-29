@@ -1,0 +1,47 @@
+\section{Euler's Formula}
+
+The shortcoming of \textbf{Fermat's Little Theorem} is that it only works for prime number. However, we are also interested in $k$s when given some composite number $m$ and a number $a$ that satisfies $a^{k}\equiv 1\; (\bmod{m})$. From the previous knowledge, such is only possible when $gcd(a, m) = 1$. Thus, it is natural to look at the set of numbers that are relatively prime to $m$.
+
+\begin{definition}[Euler's Phi Function]
+  $\phi(m) = |\{a: 1\geq a\geq m,\; gcd(a, m) = 1\}|$.
+\end{definition}
+
+One important feature of Euler's phi function is that, for a given prime number $p$, $\phi(p) = p - 1$ as every integer $1\geq a < p$ is relatively prime to $p$. Also, $\phi(p^{k}) = p^{k} - p^{k - 1}$.
+
+\begin{theorem}[Euler's Formula]
+  If $gcd(a, m) = 1$, then $a^{\phi(m)}\equiv 1\; (\bmod{m})$.
+\end{theorem}
+
+\begin{proof}
+The logic behind the proof is similar to that of \textbf{Fermat's Little Theorem}.
+\end{proof}
+
+\begin{theorem}
+If $gcd(m, n) = 1$, then $\phi(mn) = \phi(m)\phi(n)$.
+\end{theorem}
+
+\begin{proof}
+Define $A = \{a: 1\leq a\leq mn, \; gcd(a, mn) = 1\}$ \\
+$B = \{(b, c): 1\leq b\leq m, \; 1\leq c\leq n,\; gcd(b, m) = gcd(c, n) = 1\}$. \\
+Note that $|A| = \phi(mn)$, $|B| = \phi(m)\phi(n)$. \\
+Now, let $f: A\to B$. It is sufficient to show that $f$ is bijective. In fact, this is implied by \textbf{Chinese Remainder Theorem}.
+\end{proof}
+
+\begin{theorem}[Chinese Remainder Theorem]
+Let $m, n$ be integers such that $gcd(m, n) = 1$. Let $b$ ($0\leq b\leq m$) and $c$ ($0\leq c\leq n - 1$) be any integers. Then $x\equiv b\; (\bmod{m})$ and $x\equiv c\; (\bmod{n})$ have exactly one solution where $0\leq x < mn$.
+\end{theorem}
+
+I omit the proof for \textbf{Chinese Remainder Theorem}. Instead, I give an example written on Sunzi Suanjing: \\
+\textit{We have a number of things, but we do not know exactly how many. If we count them by threes, we have the two left over. If we count them by fives, we have three left over. If we count them by sevens, we have two left over. How many things are there?} \\
+We are given that $x\equiv 2\; (\bmod{3})$, $x\equiv 3\; (\bmod{5})$, $x\equiv 2\; (\bmod{7})$. \\
+As $3, 5, 7$ are pairwise relatively prime, the given system of congruences have exactly one solution for modulus 105 by \textbf{Chinese Remainder Theorem}. \\
+We set $x\equiv 35a_{1} + 21a_{2} + 15a_{3}\; (\bmod{105})$. Now our goal is to find $a_{1},a_{2},a_{3}$ such that $35a_{1}\equiv 2\; (\bmod{3})$, $21a_{2}\equiv 3\; (\bmod{5})$, $15a_{3}\equiv 2\; (\bmod{7})$. \\
+I first find $a_{1}$:
+\begin{align*}
+  35a_{1} &\equiv 2\; (\bmod{3}) \\
+  35\cdot 2\cdot a_{1}' &\equiv 2\; (\bmod{3})
+\end{align*}
+Now my goal is to find $a_{1}'$ such that $35a_{1}'\equiv 1\; (\bmod{3})$. \\
+As $a_{1}'\equiv 35^{-1}\; (\bmod{3})$, $a_{1}' =  1$ thus $a_{1} = 2$. \\
+By the similar logic, $a_{2} = 1$, $a_{3} = 1$. \\
+Thus, $x\equiv 23\; (\bmod{105})$.

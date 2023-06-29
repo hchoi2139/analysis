@@ -1,0 +1,37 @@
+\section{Congruences}
+
+\begin{definition}
+  $a$ is congruent to $b$ modulo m if $m\mid a - b$ and denote $a\equiv b\; (\bmod{m})$
+\end{definition}
+
+\noindent
+It is noteworthy to mention some properties:
+
+\begin{observation}
+  If $a_{1}\equiv b_{1}\; (\bmod{m})$ and $a_{2}\equiv b_{2}\; (\bmod{m})$, then $a_{1} \pm a_{2}\equiv b_{1}\pm b_{2}\; (\bmod{m})$ and $a_{1}a_{2}\equiv b_{1}b_{2}\; (\bmod{m})$.
+\end{observation}
+
+\begin{observation}
+  If $ac\equiv bc\; (\bmod{m})$, it need not be true that $a\equiv b\; (\bmod{m})$. If, however, $gcd(c, m) = 1$, it is always true. 
+\end{observation}
+
+\noindent
+Now I should introduce a technique which we will (hopefully) love. \\
+A \textbf{Climb Every Mountain Technique} is, when solving a congruence modulo $m$, we try each value $0, 1, \dots m - 1$. I would say this technique, in Korean, as No-ga-da. This technique is often useful and is only the technique you can use. For example, to solve $x$ such that $x^{2}\equiv 3\; (\bmod{10})$, we substitute $0\dots 9$ to $x$ and find out there is no solution.
+
+\begin{theorem}[Linear Congruence Theorem]
+  Let $a, c, m\in \mathbb{Z}$ with $m\geq 1$ and let $g = gcd(a, m)$. \\
+  (1) If $g\nmid c$, then $\nexists{x}$ s.t. $ax\equiv c\; (\bmod{m})$. \\
+  (2) If $g\mid c$, then $ax\equiv c\; (\bmod{m})$ has exactly $g$ in congruent solutions.
+\end{theorem}
+
+\begin{proof}
+Proof for (1). \\
+Suppose $\exists{x_{0}}$ such that $ax_{0}\equiv c\; (\bmod{m})$ when $g\nmid c$. \\
+Then $\exists{y}$ such that $ax_{0} + my = c$. \\
+Now observe that $g\mid a$ thus $g\mid ax_{0}$ and $g\mid m$ thus $g\mid my$. \\
+Then $g\mid c$ should satisfy, and this is a contradiction. \\
+I omit the proof for (2).
+\end{proof}
+
+Arguably, the most important case of \textbf{Linear Congruence Theorem} is when $gcd(a, m) = 1$: $ax\equiv c\; (\bmod{m})$. In this case, it has only one solution and denote it as $x\equiv a^{-1}c\; (\bmod{m})$.
