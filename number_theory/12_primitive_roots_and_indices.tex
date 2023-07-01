@@ -1,0 +1,90 @@
+\section{Primitive Roots and Indices}
+
+For $gcd(a, p) = 1$, Fermat's Little Theorem tells us that $a^{p - 1}\equiv 1\pmod{p}$; however, this does not mean that $p - 1$ is the smallest exponent $e$ that makes $a^{e}\equiv 1\pmod{p}$. For example, $2^{3}\equiv 1\pmod{7}$. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|} 
+  \hline
+  $p = 7$ \\
+  \hline \hline
+  $1^{1}\equiv 1\pmod{7}$ \\
+  \hline
+  $2^{3}\equiv 1\pmod{7}$ \\
+  \hline
+  $3^{6}\equiv 1\pmod{7}$ \\
+  \hline
+  $4^{3}\equiv 1\pmod{7}$ \\
+  \hline
+  $5^{6}\equiv 1\pmod{7}$ \\
+  \hline
+  $6^{2}\equiv 1\pmod{7}$ \\
+  \hline
+\end{tabular}
+\caption{Table of Smallest Power of $a$ that equals 1 Modulo 7}
+\end{table}
+
+\noindent
+From the table, we can make two observations.
+
+\begin{observation}
+  The smallest exponent $e$ such that $a^{e}\equiv 1\pmod{p}$ seems to divide $p - 1$.
+\end{observation}
+
+\begin{observation}
+  There are always some $a$'s that require the exponent $p - 1$.
+\end{observation}
+
+\noindent
+Before moving on, I define what is called the \textit{order of a modulo p}.
+
+\begin{definition}
+(Order of $a$ modulo $p$) \\
+$e_{p}(a)$ is the smallest exponent $e\geq 1$ such that $a^{e}\equiv 1\pmod{p}$.
+\end{definition}
+
+\noindent
+Let me move on without proving the observations. What we should focus on instead is the numbers that require the largest possible order: $e_{p}(a) = p - 1$. If $a$ is such a number, then the powers $a, a^{2},\dots, a^{p - 1}\pmod{p}$ must have all different modulo $p$. Here, we have another important definition.
+
+\begin{definition}
+  (Primitive Root Modulo $p$) \\
+  A number $g$ with maximum order $e_{p}(g) = p - 1$ is called a primitive root modulo $p$.
+\end{definition}
+
+\begin{theorem}
+  (Primtive Root Theorem) \\
+  There are exactly $\phi(p - 1)$ primitive roots modulo $p$.
+\end{theorem}
+
+The beauty of a primitive root $g$ modulo $a$ prime $p$ is the appearance of every nonzero number modulo $p$ as a power of $g$. So for any number $1\leq a < p$, we can pick out exactly one of the powers $g, g^{2}, \dots, g^{p - 1}$ as being congruent to $a$ modulo $p$. The exponent is called the \textit{index of a modulo p for the base g}. We write $I(a)$ for the index.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c||c c c c c c c c c c c c|} 
+  \hline
+  $a$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+  \hline 
+  $I(a)$ & 12 & 1 & 4 & 2 & 9 & 5 & 11 & 3 & 8 & 10 & 7 & 6 \\
+  \hline
+\end{tabular}
+\caption{Table of Indices Modulo 13 for Base 2}
+\end{table}
+
+\begin{theorem}
+  (Rules for Indices) \\
+  Indices satisfy the following rules:
+  \begin{enumerate}
+    \item $I(ab)\equiv I(a)I(b) \pmod{p - 1}$
+    \item $I(a^{k})\equiv kI(a) \pmod{p - 1}$
+  \end{enumerate}
+\end{theorem}
+
+This makes our life easier. For example, suppose we want to get the solution of $19x\equiv 23\pmod{37}$. We can use the following trick:
+\begin{align*}
+  7x &\equiv 12 \pmod{13} \\
+  I(7x) &\equiv I(12) \pmod{13} \\
+  I(7) + I(x) &\equiv I(12) \pmod{13} \\
+  11 + I(x) &\equiv 6 \pmod{13} \\
+  I(x) &\equiv -5 \equiv 8 \pmod{13}.
+\end{align*}
+We check the table of indices modulo 13 for base 2 and get that $x\equiv 9\pmod{13}$.

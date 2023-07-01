@@ -44,4 +44,53 @@ I first find $a_{1}$:
 Now my goal is to find $a_{1}'$ such that $35a_{1}'\equiv 1\; (\bmod{3})$. \\
 As $a_{1}'\equiv 35^{-1}\; (\bmod{3})$, $a_{1}' =  1$ thus $a_{1} = 2$. \\
 By the similar logic, $a_{2} = 1$, $a_{3} = 1$. \\
-Thus, $x\equiv 23\; (\bmod{105})$.
+Thus, $x\equiv 23\; (\bmod{105})$. \\
+\\
+\noindent
+Lastly, we look at the relationship between Euler's phi function and sum of divisors.
+
+\begin{observation}
+  Suppose $n = p$ where $p$ is prime. Since $\phi(1) = 1$ and $\phi(p) = p - 1$, $\phi(1) + \phi(p) = p$.
+\end{observation}
+
+\begin{observation}
+  Suppose $n = p^{k}$ where $p$ is prime, $k$ some natural number. Then $\phi(1) + \phi(p) + \phi(p^{2}) + \cdots + \phi(p^{k}) = p^{k}$. 
+\end{observation}
+
+\begin{observation}
+  Suppose $n = pq$ where $p,q$ are distinct primes. Then $\phi(1) + \phi(p) + \phi(q) + \phi(pq) = (1 + \phi(p))(1 + \phi(q)) = pq$.
+\end{observation}
+
+\noindent
+By using these properties, we can come up to \textbf{Euler's Phi Function Summation Formula} after a simple lemma.
+
+\begin{lemma}
+$\forall n\in \mathbb{N}$, define $F(n) = \phi(d_{1}) + \phi(d_{2}) + \cdots + \phi(d_{r})$ where $d$s are the divisors of $n$. If $gcd(m, n) = 1$ then $F(mn) = F(m)F(n)$.
+\end{lemma}
+
+\begin{proof}
+Let $d_{1},\dots d_{r}$ be the divisors of $n$, $e_{1},\dots e_{s}$ be the divisors of $m$. \\
+Since $gcd(m, n) = 1$, $gcd(d_{i}, e_{j}) = 1$ so $\phi(d_{i}, e_{j}) = \phi(d_{i})\phi(e_{j})$. \\
+Hence, 
+\begin{align*}
+  F(mn) &= \sum_{i, j} \phi(d_{i}e_{j}) \\
+  &= (\phi(d_{1}) + \phi(d_{2}) + \cdots + \phi(d_{r}))(\phi(e_{1}) + \phi(e_{2}) + \cdots \phi(e_{s})) \\
+  &= F(m)F(n).
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+  (Euler's Phi Function Summation Formula) \\
+  Let $d_{1}, d_{2},\dots, d_{r}$ be the divisors of $n$ including $1$ and $n$. Then $\phi(d_{1}) + \phi(d_{2}) + \cdots + \phi(d_{r}) = n$.
+\end{theorem}
+
+\begin{proof}
+  Let $F(n) = \phi(d_{1}) + \phi(d_{2}) + \cdots + \phi(d_{r})$. \\
+  We know by \textbf{Observation 2.6.2} that $F(p^{k}) = p^{k}$. \\
+  Say $n = p_{1}^{k_{1}}p_{2}^{k_{2}}\cdots p_{r}^{k_{r}}$. Then 
+  \begin{align*}
+    F(n) = F(p_{1}^{k_{1}}p_{2}^{k_{2}}\cdots p_{r}^{k_{r}}) &= F(p_{1}^{k_{1}})F(p_{2}^{k_{2}})\cdots F(p_{r}^{k_{r}}) \\
+    &= p_{1}^{k_{1}}p_{2}^{k_{2}}\cdots p_{r}^{k_{r}} \\
+    &= n.
+  \end{align*}
+\end{proof}

@@ -1,0 +1,77 @@
+\section{Infinite Primes}
+
+I start by introducing \textbf{Prime Divisibility Theorem} and the \textbf{Fundamental Theorem of Arithmetic}.
+
+\begin{theorem}[Prime Divisibility Theorem]
+Suppose that for some prime $p$, if $p\mid a_{1}a_{2}\cdots a_{r}$ where $a_{1}a_{2}\cdots a_{r}\in \mathbb{Z}_{\geq 2}$, $r\in \mathbb{Z}_{\geq 2}$, then $1\leq \exists i\leq r$, $p\mid a_{i}$.
+\end{theorem}
+
+\noindent
+I omit the proof.
+
+\begin{theorem}[The Fundamental Theorem of Arithmetic]
+All natural numbers larger than 1 can be factored into the product of primes in exactly one way.
+\end{theorem}
+
+\begin{proof}
+I first prove the existence of the factorisation. I prove by induction. \\
+We check the base case: the theorem holds in case of $2$. \\
+We check the inductive case: assume that for $2\leq \forall n\leq k$, $\forall k\in \mathbb{Z}_{\geq 2}$ the theorem holds. \\
+If $n = k + 1$ is prime, the theorem holds. \\
+If $n = k + 1$ is composite, then we can factorise as $n = n_{1}n_{2}$ where $2\leq n_{1}, n_{2}\leq k$. \\
+By assumption, $n_{1}, n_{2}$ can be facotored into the product of primes, so $n$ can. \\
+\\
+Now I prove the uniqueness of factorisation. \\
+Suppose there are more than one way of factorisation: $n = p_{1}p_{2}\cdots p_{r} = q_{1}q_{2}\cdots q_{s}$. \\
+Without loss of generality, say that $p_{1}p_{2}\cdots p_{r}$ and $q_{1}q_{2}\cdots q_{s}$ does not have common factor. \\
+If they have some, simply erase them and acquire the same form. \\
+Now look $p_{1}$. Since $p_{1}\mid p_{1}p_{2}\cdots p_{r} = n$, $p_{1}\mid q_{1}q_{2}\cdots q_{s}$. \\
+Then, by \textbf{Prime Divisibility Theorem}, $1\leq \exists i\leq s$, $p_{1}\mid q_{i}$. Contradiction.
+\end{proof}
+
+\begin{theorem}
+There are infinitely many primes.
+\end{theorem}
+
+\begin{proof}
+  Suppose there are finite number of primes. \\
+  Name each as $p_{1}, p_{2},\dots p_{n}$ where $n$ is the number of primes. \\
+  Now we inspect the number $x = p_{1}p_{2}\cdots p_{n} + 1$. \\
+  We observe that $x$ is a composite number as it is not one of the primes we pre-defined. \\
+  Since $x$ is a composite number, according to \textbf{Fundamental Theorem of Arithmetic}, there must exist some prime number $p$ such that $p\mid x$. \\
+  However, we observe there is no such prime number in our predefined prime numbers that can factorise $x$. This is a contradiction as, according to \textbf{Fundamental Theorem of Arithmetic}, all number should be factorised into the product of prime numbers. $x$ is a composite number, so there must exist some prime that can factorise $x$.
+\end{proof}
+
+\noindent
+I provide an example regarding \textbf{Theorem 2.7.3} and generalise later to \textbf{Dirichlet's Theorem on Primes in Arithmetic Progressions}. 
+
+\begin{exercise}
+Show that there are infinitely many primes that are congruent to $5 \pmod{6}$.
+\end{exercise}
+
+\begin{solution}
+Suppose that $ps = \{5, p_{1}, p_{2}\dots p_{n}\}$ be the finite primes which are congruent to 5 mod 6. \\
+We inspect the number $x = 6p_{1}p_{2}\cdots p_{n} + 5$. \\ 
+First observe that $x\equiv 5 \pmod{6}$. Since $x$ is not in pre-defined set $ps$, $x$ is composite. \\
+Then, by \textbf{Fundamental Theorem of Arithmetic}, we can factorise $x$ into product of primes: $x = q_{1}q_{2}\cdots q_{r}$ where all $q$s are primes. \\
+Now, observe that $3\nmid x$. Thus, $x = 6k + 1$ or $x = 6k + 5$. \\
+Now we look at the features of $q$s. \\
+If $\forall i$ $q_{i}\equiv 1 \pmod{6}$, then $x = q_{1}\cdots q_{r}\equiv 1 \pmod{6}$. We can thus know that at least one $q$ is $\equiv 5 \pmod{6}$. Say such $q$ as $q'$. \\
+Then $q'\in ps$ as $ps$ contain all the primes that is $\equiv 5 \pmod{6}$. \\
+If $q' = 5$, then $5\mid x$. Contradiction. \\
+If $q' = p_{t}$, $1\leq t\leq n$, then $q'\mid 6p_{1}p_{2}\cdots p_{r}$ and $q'\mid x$. \\
+So $q'\mid 5$, which is a contradiction.
+\end{solution}
+
+\begin{theorem}[Dirichlet's Theorem on Primes in Arithmetic Progressions]
+Let $a, m\in \mathbb{Z}$, $gcd(a, b) = 1$. Then there are infinitely many primes that are congruent to $a \pmod{m}$.
+\end{theorem}
+
+\noindent
+I omit the proof. \\
+\\
+Finally, I mention \textbf{Prime Number Theorem} and move on to next section.
+
+\begin{theorem}[The Prime Number Theorem]
+When $x\in \mathbb{Z}$ is large, the number of primes less than $x$ is approximately equal to $\dfrac{x}{ln{x}}$
+\end{theorem}

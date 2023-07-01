@@ -42,3 +42,10 @@ If $a\neq a'$, then we can always find a pair $(a, a')$ that satisfies $aa'\equi
 \\
 By the case of $a\neq a'$ above, we notice $(p - 2)!\equiv 1\; (\bmod{p})$.
 \end{proof}
+
+\begin{definition}[Carmichael Number]
+A composite number $m$ is called a Carmichael number if the congruence $a^{m - 1}\equiv 1 \pmod{m}$ is true for every number $a$ with $gcd(a, m) = 1$.
+\end{definition}
+
+\noindent
+For example, $m = 561 = 3\cdot 11\cdot 17$ is a Carmichael number. By Fermat's Little Theorem, we know that $\forall a$, $gcd(a, m) = 1$, $a^{2}\equiv 1 \pmod{3}$, $a^{10}\equiv 1\pmod{11}$, $a^{16}\equiv 1\pmod{17}$. Thus, $a^{80}\equiv a^{560}\equiv 1 \pmod{561}$.

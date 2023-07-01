@@ -1,0 +1,34 @@
+\section{Quadratic Reciprocity}
+
+\begin{theorem}
+(Law of Quadratic Reciprocity) \\
+Let $p$ and $q$ be distinct odd primes. 
+\begin{enumerate}
+  \item $
+    \legendre{-1} = \begin{cases} 
+      1, & \text{if } p\equiv 1\pmod{4} \\
+      -1, & \text{if } p\equiv 3\pmod{4}
+    \end{cases}  
+  $
+  \item $
+    \legendre{2} = \begin{cases}
+      1, & \text{if } p\equiv 1, 7\pmod{8} \\
+      -1, & \text{if } p\equiv 3, 5\pmod{8}
+    \end{cases}
+  $
+  \item $
+    \legendre{q} = \begin{cases}
+      \legendre[q]{p}, & \text{if } p\equiv 1\pmod{4} \text{ or } q\equiv 1\pmod{4} \\
+      -\legendre[q]{p}, & \text{if } p\equiv 3\pmod{4} \text{ and } q\equiv 3\pmod{4}
+    \end{cases}
+  $
+\end{enumerate}
+\end{theorem}
+
+\noindent
+The third one can be rewritten as: $\legendre{q} \legendre[q]{p} = (-1)^{\frac{p - 1}{2} \frac{q - 1}{2}}.$ \\
+Let me use the following features without proof:
+\begin{enumerate}
+  \item I introduce a Jacobi symbol, which is a generalised version of Legendre symbol. For any integer $a$ and positive odd integer $b$ factored into product of primes $b = p_{1}p_{2}\cdots p_{r}$, then $\legendre[b]{a} = \legendre[p_{1}]{a} \legendre[p_{2}]{a}\cdots \legendre[p_{r}]{a}$. 
+  \item We can use the Law of Quadratic Reciprocity when $a$ and $b$ are odd positive integers. This is called \textit{Generalised Law of Quadratic Reciprocity}.
+\end{enumerate}

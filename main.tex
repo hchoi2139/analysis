@@ -24,6 +24,7 @@
 % Define definition-like environments
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section] % Definitions numbered within sections
+\newtheorem{algorithm}[definition]{Algorithm}
 
 % Define observation environment
 \newtheorem{observation}{Observation}[section] % Observations numbered within sections
@@ -31,6 +32,11 @@
 % Define remark-like environment
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}[section] % Remarks numbered within sections
+
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{solution}{Solution}
+
+\newcommand{\legendre}[2][p]{\ensuremath{\left( \dfrac{#2}{#1} \right) }}
 
 \title{Note}
 \author{John Smith}
